@@ -34,9 +34,7 @@ func pad(data []byte, plen int) []byte {
 	tmp := len(data) % plen
 	nlen := plen - tmp
 
-	if tmp == 0 {
-		nlen = 0
-	}
+	if tmp == 0 { nlen = 0 }
 
 	for i := 0; i < nlen; i++ {
 		data = append(data, byte(0))
