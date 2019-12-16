@@ -40,15 +40,15 @@ func main() {
 
 	flag.Parse()
 
+	if !contains(sizes, *size) {
+		fmt.Println("Please select a valid size: " + strings.Trim(strings.Join(strings.Fields(fmt.Sprint(sizes)), ", "), "[]"))
+		os.Exit(-3)
+	}
+
 	if !isFlagPassed("out") {
 		fmt.Printf("JCA %s\n\n", version)
 		flag.PrintDefaults()
 		os.Exit(0)
-	}
-
-	if !contains(sizes, *size) {
-		fmt.Println("Please select a valid size: " + strings.Trim(strings.Join(strings.Fields(fmt.Sprint(sizes)), ", "), "[]"))
-		os.Exit(-3)
 	}
 
 	fmt.Printf("Generating key of size %d bytes!\n", *size)
