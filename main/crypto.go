@@ -79,6 +79,11 @@ func encrypt(keyFile string, msgFile string, outputFile string, rounds int) {
 		os.Exit(-1)
 	}
 
+	if !contains(len(key), sizes) {
+		fmt.Println("Invalid key size!")
+		os.Exit(-4)
+	}
+
 	data, err := ioutil.ReadFile(msgFile)
 
 	if err != nil {
@@ -113,6 +118,11 @@ func decrypt(keyFile string, msgFile string, outputFile string, rounds int) {
 		os.Exit(-1)
 	}
 
+	if !contains(len(key), sizes) {
+		fmt.Println("Invalid key size!")
+		os.Exit(-4)
+	}
+
 	data, err := ioutil.ReadFile(msgFile)
 
 	if err != nil {
@@ -140,9 +150,9 @@ func decrypt(keyFile string, msgFile string, outputFile string, rounds int) {
 }
 
 func main() {
-	msgFile := flag.String("in", "none", "Input file")
-	keyFile := flag.String("key", "none", "Key file")
-	outFile := flag.String("out", "none", "Output file")
+	msgFile := flag.String("in", "", "Input file")
+	keyFile := flag.String("key", "", "Key file")
+	outFile := flag.String("out", "", "Output file")
 	rounds := flag.Int("rounds", 4, "Number of rounds")
 	decryptFlag := flag.Bool("decrypt", false, "Use this to decrypt")
 

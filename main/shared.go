@@ -3,7 +3,7 @@ package main
 import "flag"
 
 var sizes = []int{ 2048, 4096, 8192, 16384, 32768, 65536, 131072, 262144 }
-var version = "v0.9.1-dev"
+var version = "v0.9.2-dev"
 
 func isFlagPassed(name string) bool {
 	found := false
