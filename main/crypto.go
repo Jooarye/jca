@@ -79,7 +79,7 @@ func encrypt(keyFile string, msgFile string, outputFile string, rounds int) {
 		os.Exit(-1)
 	}
 
-	if !contains(len(key), sizes) {
+	if !contains(sizes, len(key)) {
 		fmt.Println("Invalid key size!")
 		os.Exit(-4)
 	}
@@ -118,7 +118,7 @@ func decrypt(keyFile string, msgFile string, outputFile string, rounds int) {
 		os.Exit(-1)
 	}
 
-	if !contains(len(key), sizes) {
+	if !contains(sizes, len(key)) {
 		fmt.Println("Invalid key size!")
 		os.Exit(-4)
 	}
